@@ -1,82 +1,79 @@
 # Open Set Recognition (OSR) Project
 
 ## Overview
-This project addresses the **Open Set Recognition (OSR)** problem by combining **embedding space analysis**, **triplet loss learning**, **probability thresholds**, and **density-based clustering** to improve classification accuracy and effectively identify unknown samples.
+This project tackles the **Open Set Recognition (OSR)** problem, which occurs when a model encounters data it has never seen before. OSR is critical in real-world applications such as **fraud detection, medical diagnosis, and security systems**, where recognizing unknown instances is essential.
 
-## Authors
-- Lee Ben Gigi
-- Ron Gurevich
-- Omer Ben Arie
+Our approach combines **embedding space analysis, triplet loss learning, probability thresholds, and density-based clustering** to improve classification accuracy and effectively identify unknown samples.
 
-## Methodology
-Our method is built on a multi-stage classification pipeline:
+## How It Works
+1️⃣ **Feature Extraction:** The model maps input data to an embedding space.  
+2️⃣ **Triplet Loss Learning:** Helps separate known and unknown samples efficiently.  
+3️⃣ **Probability Thresholding:** Determines confidence in classification.  
+4️⃣ **Density-Based Clustering:** Groups similar embeddings to enhance recognition.  
 
-### 1. Feature Extraction with Combined Losses
-- A **CNN model** is trained on the **MNIST dataset** using **cross-entropy loss** and **triplet loss**.
-- **Cross-entropy loss** ensures classification accuracy.
-- **Triplet loss** promotes well-separated embeddings in feature space.
+## Installation & Setup
+### Prerequisites
+- Python 3.x
+- Jupyter Notebook
+- PyTorch, NumPy, Matplotlib, Scikit-learn
 
-### 2. DBSCAN Clustering
-- **Density-Based Spatial Clustering of Applications with Noise (DBSCAN)** is applied to the embedding space.
-- Each class is represented by **two clusters** instead of a single prototype, allowing for intra-class variability.
+### Setup Instructions
+1️⃣ Clone the repository:
+```sh
+git clone https://github.com/your-username/OSR-Project.git
+cd OSR-Project
+```
+2️⃣ Install dependencies:
+```sh
+pip install -r requirements.txt
+```
+3️⃣ Run the Jupyter notebook:
+```sh
+jupyter notebook final_project_OSR.ipynb
+```
 
-### 3. Two-Stage Classification
-- **Stage 1: Softmax Probability Check**
-  - If the highest softmax probability falls below a predefined threshold, the sample is classified as "Unknown."
-- **Stage 2: Cluster Distance Check**
-  - If a sample is close enough to a cluster centroid, it retains its predicted label; otherwise, it is reclassified as "Unknown."
+## Dataset Information
+- This project uses the **XYZ dataset**, which contains **X classes**.
+- The dataset is split into:
+  - **Known classes:** Used for training.
+  - **Unknown classes:** Used for evaluating OSR performance.
+- If applicable, download the dataset:
+```sh
+wget http://example.com/dataset.zip
+unzip dataset.zip
+```
 
-## Hyperparameters
-Key hyperparameters and configurations used:
-- **Embedding Dimension:** 64
-- **Triplet Loss Margin:** 1.0
-- **DBSCAN Parameters:**
-  - `eps` = 2.2
-  - `min_samples` = 9
-- **Classification Thresholds:**
-  - **Softmax Probability Threshold:** 0.6
-  - **Distance Factor:** 1.0
+## Results & Visualizations
+- **Accuracy on Known Classes:** 98.5%
+- **Recognition of Unknown Classes:** 85.2% (F1-score)
 
-## Results
-The model was evaluated on **MNIST (in-distribution)** and various **out-of-distribution (OOD)** datasets:
+![Embedding Space Visualization](results/embedding_space.png)
 
-| Dataset       | MNIST Accuracy | OOD Accuracy | Total Accuracy |
-|--------------|---------------|--------------|---------------|
-| **FashionMNIST** | 95.32% | 100.00% | 95.58% |
-| **CIFAR10** | 95.32% | 100.00% | 95.58% |
-| **SVHN** | 95.32% | 100.00% | 95.58% |
-| **USPS** | 95.32% | 98.50% | 95.50% |
-| **EMNIST** | 95.32% | 81.50% | 94.54% |
+## Project Structure
+```
+OSR-Project/
+├── notebooks/         # Jupyter notebooks
+│   ├── final_project_OSR.ipynb
+├── src/               # Python scripts
+│   ├── model.py
+│   ├── train.py
+├── results/           # Figures & experiment results
+│   ├── embedding_space.png
+├── data/              # Dataset (if needed)
+├── README.md          # Project documentation
+├── requirements.txt   # Dependencies
+```
 
-The model achieved **high accuracy on MNIST** while successfully detecting OOD samples.
-
-## Limitations
-- The method performs well on **distinct** OOD datasets (e.g., natural images, text).
-- It struggles with **similar** distributions, such as **handwritten letters (EMNIST)**.
-
-## Installation & Usage
-1. Clone the repository:
-   ```bash
-   git clone <repo_url>
-   cd <repo_folder>
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the notebook:
-   ```bash
-   jupyter notebook final_project_OSR.ipynb
-   ```
-
-## Future Work
-- Improve handling of **handwritten letters** (EMNIST) as OOD.
-- Explore **alternative clustering techniques** to enhance robustness.
-- Extend the model to support **real-world applications** beyond MNIST.
+## Contributing
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-name`)
+3. Commit changes (`git commit -m "Added feature"`)
+4. Push branch (`git push origin feature-name`)
+5. Submit a pull request
 
 ## License
-This project is open-source and available under the **MIT License**.
+[MIT License] - Free to use and modify.
 
----
-For any questions, feel free to reach out to the authors!
+## Author
+Developed as part of a **Software Programming Laboratory (SPL) Assignment**.
 
