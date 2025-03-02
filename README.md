@@ -12,6 +12,13 @@ Our approach combines **embedding space analysis, triplet loss learning, probabi
 4️⃣ **Density-Based Clustering:** Groups similar embeddings to enhance recognition.  
 
 ## Installation & Setup
+### Running on Google Colab
+If you prefer running the project on **Google Colab**, follow these steps:
+1️⃣ Open Google Colab: [Google Colab](https://colab.research.google.com/)
+2️⃣ Upload the `final_project_OSR.ipynb` notebook.
+3️⃣ Run the notebook in Colab without needing a local Python setup.
+
+Alternatively, follow the instructions below to run it locally.
 ### Prerequisites
 - Python 3.x
 - Jupyter Notebook
@@ -75,5 +82,4 @@ OSR-Project/
 [MIT License] - Free to use and modify.
 
 ## Author
-Developed as part of a **Software Programming Laboratory (SPL) Assignment**.
-
+Developed as part of a **Deep Learning Final Project**.
