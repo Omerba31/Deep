@@ -27,39 +27,12 @@ To run this project on **Google Colab**, follow these steps:
 2. Upload the `final_project_OSR.ipynb` notebook.
 3. Run the notebook in Colab without needing a local Python setup.
 
-Alternatively, follow the local setup instructions below.
-
-### Prerequisites
-- Python 3.x
-- Jupyter Notebook
-- PyTorch, NumPy, Matplotlib, Scikit-learn
-
-### Local Setup Instructions
-1. Clone the repository:
-```sh
-git clone https://github.com/your-username/OSR-Project.git
-cd OSR-Project
-```
-2. Install dependencies:
-```sh
-pip install -r requirements.txt
-```
-3. Run the Jupyter notebook:
-```sh
-jupyter notebook final_project_OSR.ipynb
-```
-
 ## Dataset Information
 - We use the **MNIST dataset** for training and testing.
 - The dataset is split into:
   - **Known classes:** Used for training.
   - **Unknown classes:** Used for evaluating OSR performance.
 - The model was tested on additional OOD datasets, including **FashionMNIST, CIFAR-10, SVHN, USPS, and EMNIST**.
-- To download the dataset manually, use:
-```sh
-wget http://example.com/dataset.zip
-unzip dataset.zip
-```
 
 ## Results & Visualizations
 - **Accuracy on Known Classes (MNIST):** 95.32%
